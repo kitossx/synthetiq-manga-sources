@@ -1,0 +1,19 @@
+{
+  "chapterId": 7003,
+  "name": "3",
+  "number": 3,
+  "publishedAt": "2026-03-03T00:00:00.000Z",
+  "series": {
+    "id": 101,
+    "name": "Crónicas del Faro",
+    "slug": "fixture-cronicas-del-faro"
+  },
+  "prev": {"id": 7002, "name": "2.5"},
+  "next": null,
+  "pages": [
+    {"id": 9001, "url": "https://images.leermangaesp.net/fixtures/faro-001.webp"},
+    {"id": 9002, "url": "https://images.leermangaesp.net/fixtures/faro-002.webp"},
+    {"id": 9002, "url": "https://images.leermangaesp.net/fixtures/faro-002.webp"}
+  ],
+  "fallbackPages": []
+}

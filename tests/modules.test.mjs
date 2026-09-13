@@ -1431,6 +1431,92 @@ test("YSK Comics parses JSON search, detail chapters, and CDN page images", asyn
   assert.deepEqual(JSON.parse(JSON.stringify(pages)), fixtures.expected.images);
 });
 
+test("MangaLoversEsp preserves API identities, pagination, filters, and ordered pages", async () => {
+  const fixtures = {
+    search: await text("modules/josenunez/fixtures/search.json"),
+    searchPage2: await text("modules/josenunez/fixtures/search-page-2.json"),
+    details: await text("modules/josenunez/fixtures/details.json"),
+    pages: await text("modules/josenunez/fixtures/pages.json"),
+    expected: await json("modules/josenunez/fixtures/expected.json"),
+  };
+  const calls = [];
+  const module = await loadModule("modules/josenunez/index.js", {
+    fetchv2: async (url, headers, method, body, options) => {
+      calls.push(url);
+      assert.equal(method, "GET");
+      assert.equal(body, null);
+      assert.equal(headers.Accept, "application/json");
+      assert.equal(headers.Referer, "https://mangalovers.josenunez.cl/");
+      assert.equal(options.responseClass, "json");
+      if (url.includes("/capitulo/")) return response(fixtures.pages);
+      if (/\/api\/manga\/fixture-cronicas-del-faro$/.test(url)) return response(fixtures.details);
+      if (new URL(url).searchParams.get("page") === "2") return response(fixtures.searchPage2);
+      return response(fixtures.search);
+    },
+  });
+
+  const search = await module.searchResults({
+    text: "faro",
+    tags: ["aventura", "misterio"],
+    excludeTags: ["terror"],
+    status: "Ongoing",
+    type: "manga",
+  }, 1);
+  assert.deepEqual(JSON.parse(JSON.stringify(search)), fixtures.expected.search);
+  const searchURL = new URL(calls[0]);
+  assert.equal(searchURL.searchParams.get("search"), "faro");
+  assert.equal(searchURL.searchParams.get("genres"), "aventura,misterio");
+  assert.match(searchURL.searchParams.get("excludeGenres"), /adult/);
+  assert.match(searchURL.searchParams.get("excludeGenres"), /terror/);
+  assert.equal(searchURL.searchParams.get("status"), "Activo");
+  assert.equal(searchURL.searchParams.get("type"), "manga");
+
+  const secondPage = await module.searchResults("faro", 2);
+  assert.deepEqual(JSON.parse(JSON.stringify(secondPage)), fixtures.expected.searchPage2);
+
+  const details = await module.extractDetails(fixtures.expected.details.id);
+  assert.deepEqual(JSON.parse(JSON.stringify(details)), fixtures.expected.details);
+
+  const chapters = await module.extractChapters(details.id);
+  assert.deepEqual(JSON.parse(JSON.stringify(chapters)), fixtures.expected.chapters);
+
+  const pages = await module.extractImages(chapters[0].id);
+  assert.deepEqual(JSON.parse(JSON.stringify(pages)), fixtures.expected.images);
+
+  const discovery = await module.discoveryHome();
+  assert.deepEqual(JSON.parse(JSON.stringify(discovery.sections.map((section) => section.id))), ["popular", "latest"]);
+  assert.ok(discovery.sections.every((section) => section.items.length === 2));
+});
+
+test("MangaLoversEsp rejects malformed, adult-only, empty, and foreign-host fixtures", async () => {
+  const fixtures = {
+    malformed: await text("modules/josenunez/fixtures/malformed.json"),
+    empty: await text("modules/josenunez/fixtures/empty.json"),
+    expected: await json("modules/josenunez/fixtures/expected.json"),
+    challenge: await text("modules/josenunez/fixtures/challenge.html"),
+    adult: await text("modules/josenunez/fixtures/details-adult.json"),
+    malformedChapters: await text("modules/josenunez/fixtures/chapters-malformed.json"),
+    emptyPages: await text("modules/josenunez/fixtures/pages-empty.json"),
+    foreignPages: await text("modules/josenunez/fixtures/pages-foreign-host.json"),
+  };
+  async function loaded(body) {
+    return loadModule("modules/josenunez/index.js", { fetchv2: async () => response(body) });
+  }
+
+  await assert.rejects((await loaded(fixtures.malformed)).searchResults("fixture", 1), /invalid shape/);
+  assert.deepEqual(
+    JSON.parse(JSON.stringify(await (await loaded(fixtures.empty)).searchResults("fixture", 1))),
+    fixtures.expected.emptySearch,
+  );
+  await assert.rejects((await loaded(fixtures.challenge)).searchResults("fixture", 1), /HTML|challenge|login/);
+  await assert.rejects((await loaded(fixtures.adult)).extractDetails("fixture-adult"), /adult-only genre/);
+  await assert.rejects((await loaded(fixtures.malformedChapters)).extractChapters("fixture-cronicas-del-faro"), /malformed chapter/);
+  const chapter = "https://mangalovers.josenunez.cl/manga/fixture-cronicas-del-faro/capitulo/7003";
+  await assert.rejects((await loaded(fixtures.emptyPages)).extractImages(chapter), /no readable page images/);
+  await assert.rejects((await loaded(fixtures.foreignPages)).extractImages(chapter), /undeclared page-image URL/);
+  await assert.rejects((await loaded(fixtures.malformed)).searchResults({ tags: ["hentai"] }, 1), /adult-only genre/);
+});
+
 test("MangaBall deduplicates chapter translations and preserves reader image metadata", async () => {
   const fixtures = {
     home: await text("modules/mangaball/fixtures/home.html"),

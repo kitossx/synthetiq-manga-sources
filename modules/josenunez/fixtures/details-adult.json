@@ -1,0 +1,10 @@
+{
+  "id": 909,
+  "name": "Contenido restringido de prueba",
+  "slug": "fixture-adult",
+  "cover": null,
+  "status": "Activo",
+  "summary": "Registro inventado para probar la exclusión.",
+  "genres": ["adult"],
+  "chapters": [{"id": 9901,"name":"1","publishedAt":"2026-01-01T00:00:00.000Z","chapterNumber":1}]
+}

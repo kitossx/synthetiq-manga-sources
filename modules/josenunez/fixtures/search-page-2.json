@@ -1,0 +1,19 @@
+{
+  "data": [
+    {
+      "id": 404,
+      "name": "Viaje de Cobre",
+      "slug": "fixture-viaje-de-cobre",
+      "cover": "https://imagizer.imageshack.com/fixtures/cobre.jpg",
+      "fallbackCover": null,
+      "status": "Activo",
+      "chapterCount": 2
+    }
+  ],
+  "meta": {
+    "total": 3,
+    "page": 2,
+    "limit": 20,
+    "totalPages": 2
+  }
+}

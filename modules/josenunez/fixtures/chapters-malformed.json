@@ -1,0 +1,9 @@
+{
+  "id": 101,
+  "name": "Crónicas del Faro",
+  "slug": "fixture-cronicas-del-faro",
+  "status": "Activo",
+  "summary": "Muestra inventada.",
+  "genres": ["aventura"],
+  "chapters": [{"id":"not-a-number","name":"1","chapterNumber":1}]
+}

@@ -179,6 +179,13 @@
    "requiredCodeFragments": [
     "function parseVolumes(html, series)"
    ]
+  },
+  "josenunez-v1": {
+   "chapterScope": "api",
+   "requiredCodeFragments": [
+    "function chapterParts(value)",
+    "seriesSlug(payload?.series?.slug) !== expected.slug"
+   ]
   }
  }
 }

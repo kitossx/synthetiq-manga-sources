@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-02T22:51:22Z",
+  "generatedAt": "2026-09-14T01:08:00Z",
   "modules": [
     {
       "contentRating": "suggestive",
@@ -760,6 +760,26 @@
       "icon": {
         "path": "modules/oceanofpdf/icon.png",
         "sha256": "c29eab5844a32a8736b5313a81e5d2dcac661c67f430b8ae655b960493669463"
+      }
+    },
+    {
+      "id": "josenunez-v1",
+      "familyID": "josenunez-v1",
+      "name": "MangaLoversEsp",
+      "version": "1.0.0",
+      "language": "es",
+      "contentType": "pageImages",
+      "contentRating": "suggestive",
+      "releaseTrack": "beta",
+      "status": "active",
+      "sortPriority": 101,
+      "manifest": {
+        "path": "modules/josenunez/manifest.json",
+        "sha256": "1bcdfecb71c1dd2dca015cabcee6d7617b636441914a024c7182a99ac885a3f7"
+      },
+      "icon": {
+        "path": "modules/josenunez/icon.png",
+        "sha256": "47e7eb7f19fcd12daac694f142b19107d3bdffa9cf10a9c74f63e169a2134c58"
       }
     }
   ],

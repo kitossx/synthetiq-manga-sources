@@ -1,0 +1,19 @@
+{
+  "id": 101,
+  "name": "Crónicas del Faro",
+  "slug": "fixture-cronicas-del-faro",
+  "cover": "https://images.leermangaesp.net/fixtures/faro-cover.webp",
+  "fallbackCover": null,
+  "status": "Activo",
+  "type": "manga",
+  "summary": "Una cartógrafa descubre señales extrañas junto a un faro.",
+  "chapterCount": 3,
+  "genres": ["aventura", "misterio", "aventura"],
+  "providers": [{"provider": "fixture", "externalSlug": "fixture-faro"}],
+  "chapters": [
+    {"id": 7003, "name": "3", "publishedAt": "2026-03-03T00:00:00.000Z", "chapterNumber": 3},
+    {"id": 7001, "name": "1", "publishedAt": "2026-03-01T00:00:00.000Z", "chapterNumber": 1},
+    {"id": 7002, "name": "2.5", "publishedAt": "2026-03-02T00:00:00.000Z", "chapterNumber": 2.5},
+    {"id": 7002, "name": "2.5 duplicado", "publishedAt": "2026-03-02T00:00:00.000Z", "chapterNumber": 2.5}
+  ]
+}

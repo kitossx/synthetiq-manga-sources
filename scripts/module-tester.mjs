@@ -295,6 +295,7 @@ async function createRuntime(slug, mode) {
       asuraSearchPage2: await fixture("search-page-2.json"),
       asuraLockedChapter: await fixture("locked-chapter.json"),
       asuraChapter3: await fixture("chapter-3.json"),
+      josenunezPages7001: await fixture("pages-7001.json"),
     };
 
     bridges = {
@@ -398,6 +399,16 @@ if (slug === "novelfire") {
           if (/\/comics\/[^/]+\/chapter\//i.test(u) && chapter) return fixtureResponse(chapter, 200);
           if (/\/comics\/[^/]+$/i.test(u) && chapterList) return fixtureResponse(chapterList, 200);
           if (home) return fixtureResponse(home, 200);
+        }
+        if (slug === "josenunez") {
+          if (/\/api\/manga\/capitulo\/[^/]+\/7001\/pages/i.test(u) && special.josenunezPages7001) {
+            return fixtureResponse(special.josenunezPages7001, 200, u);
+          }
+          if (/\/api\/manga\/capitulo\/[^/]+\/\d+\/pages/i.test(u) && sourcePages) {
+            return fixtureResponse(sourcePages, 200, u);
+          }
+          if (/\/api\/manga\/[^/?]+$/i.test(u) && details) return fixtureResponse(details, 200, u);
+          if (/\/api\/manga\?/i.test(u) && search) return fixtureResponse(search, 200, u);
         }
         if (slug === "ichi-the-witch") {
           if (/\/chapter\//i.test(u) && chapter) return fixtureResponse(chapter, 200, u);

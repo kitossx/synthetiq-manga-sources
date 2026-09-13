@@ -1,0 +1,43 @@
+{
+  "data": [
+    {
+      "id": 101,
+      "name": "Crónicas del Faro",
+      "slug": "fixture-cronicas-del-faro",
+      "cover": "https://images.leermangaesp.net/fixtures/faro-cover.webp",
+      "fallbackCover": null,
+      "status": "Activo",
+      "chapterCount": 3
+    },
+    {
+      "id": 101,
+      "name": "Crónicas del Faro duplicado",
+      "slug": "fixture-cronicas-del-faro",
+      "cover": "https://images.leermangaesp.net/fixtures/duplicate.webp",
+      "fallbackCover": null,
+      "status": "Activo",
+      "chapterCount": 3
+    },
+    {
+      "id": 202,
+      "name": "Jardín de Nubes",
+      "slug": "fixture-jardin-de-nubes",
+      "cover": "http://insecure.invalid/cover.jpg",
+      "fallbackCover": null,
+      "status": "Finalizado",
+      "chapterCount": 1
+    },
+    {
+      "id": 303,
+      "name": "Entrada sin identidad",
+      "slug": "",
+      "cover": null
+    }
+  ],
+  "meta": {
+    "total": 3,
+    "page": 1,
+    "limit": 20,
+    "totalPages": 2
+  }
+}
