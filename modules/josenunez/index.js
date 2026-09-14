@@ -12,6 +12,7 @@
     "mangalovers.josenunez.cl",
     "imagizer.imageshack.com",
     "images.leermangaesp.net",
+    "images.mangalect.org",
   ]);
   const EXPLICIT_GENRES = new Set([
     "adult",

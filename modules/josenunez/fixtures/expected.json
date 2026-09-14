@@ -6,7 +6,7 @@
         "href": "https://mangalovers.josenunez.cl/manga/fixture-cronicas-del-faro",
         "url": "https://mangalovers.josenunez.cl/manga/fixture-cronicas-del-faro",
         "title": "Crónicas del Faro",
-        "image": "https://images.leermangaesp.net/fixtures/faro-cover.webp"
+        "image": "https://images.mangalect.org/fixtures/faro-cover.webp"
       },
       {
         "id": "fixture-jardin-de-nubes",
@@ -75,7 +75,7 @@
   ],
   "images": [
     {
-      "url": "https://images.leermangaesp.net/fixtures/faro-001.webp",
+      "url": "https://images.mangalect.org/fixtures/faro-001.webp",
       "headers": {
         "Accept": "image/avif,image/webp,image/*,*/*;q=0.8",
         "Referer": "https://mangalovers.josenunez.cl/"
