@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-09-13T23:43:46Z",
+  "generatedAt": "2026-09-14T00:06:30Z",
   "modules": [
     {
       "id": "josenunez-v1",
       "familyID": "josenunez-v1",
       "name": "MangaLoversEsp",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "language": "es",
       "contentType": "pageImages",
       "contentRating": "suggestive",
@@ -14,7 +14,7 @@
       "sortPriority": 1,
       "manifest": {
         "path": "modules/josenunez/manifest.json",
-        "sha256": "1bcdfecb71c1dd2dca015cabcee6d7617b636441914a024c7182a99ac885a3f7"
+        "sha256": "3b5c0148883762216ce9c9fe7b6d56eb0cf06507ac231c6d8508789dd9faefd1"
       },
       "icon": {
         "path": "modules/josenunez/icon.png",

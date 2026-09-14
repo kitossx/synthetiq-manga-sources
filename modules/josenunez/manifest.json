@@ -2,7 +2,8 @@
   "allowedHosts": [
     "mangalovers.josenunez.cl",
     "imagizer.imageshack.com",
-    "images.leermangaesp.net"
+    "images.leermangaesp.net",
+    "images.mangalect.org"
   ],
   "attribution": {
     "author": "Synthetiq-HQ contributors",
@@ -28,7 +29,7 @@
   "description": "Spanish-language manga and manhwa catalogue using the source's public JSON API.",
   "entry": {
     "path": "modules/josenunez/index.js",
-    "sha256": "5f4936bfedd9ac6879890d89b3c865de65069d6a59a313534f8151a9993205f9"
+    "sha256": "82217942c363defbad1d5e0ab35fefcc26dd5c74c83fa814fe04eb209704ee07"
   },
   "familyID": "josenunez-v1",
   "icon": {
@@ -50,5 +51,5 @@
   "releaseTrack": "beta",
   "status": "active",
   "universalLink": "https://mangalovers.josenunez.cl/",
-  "version": "1.0.0"
+  "version": "1.0.1"
 }
