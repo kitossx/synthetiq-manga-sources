@@ -781,6 +781,26 @@
         "path": "modules/josenunez/icon.png",
         "sha256": "47e7eb7f19fcd12daac694f142b19107d3bdffa9cf10a9c74f63e169a2134c58"
       }
+    },
+    {
+      "id": "zonatmo-v1",
+      "familyID": "zonatmo-v1",
+      "name": "TuMangaOnline",
+      "version": "1.0.1",
+      "language": "es",
+      "contentType": "pageImages",
+      "contentRating": "suggestive",
+      "releaseTrack": "beta",
+      "status": "active",
+      "sortPriority": 102,
+      "manifest": {
+        "path": "modules/zonatmo/manifest.json",
+        "sha256": "fd211b39b83024971bc0667d667f770d457c262e754abb917498f8cd5e9cf776"
+      },
+      "icon": {
+        "path": "modules/zonatmo/icon.png",
+        "sha256": "ce92112ec324790b325c5ff60b4118d5a4e7f6f30ee1f5133f89e17920bde67a"
+      }
     }
   ],
   "repository": {

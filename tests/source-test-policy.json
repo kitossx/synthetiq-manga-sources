@@ -186,6 +186,13 @@
     "function chapterParts(value)",
     "seriesSlug(payload?.series?.slug) !== expected.slug"
    ]
+  },
+  "zonatmo-v1": {
+   "chapterScope": "selected-series-dom",
+   "requiredCodeFragments": [
+    "function seriesURL(value)",
+    "data-chapter-number"
+   ]
   }
  }
 }
